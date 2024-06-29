@@ -44,12 +44,20 @@ router.post('/create', async (req, res) => {
     const { 
             name, 
             description,
+
+            // categoryId, 
+
             categoryId, 
+
             rentalPrice, 
             availabilityStatus, 
             location, 
             imageUrl } = req.body;
+
+    const furniture = new Furniture({ name, description, categoryId:null, rentalPrice, availabilityStatus, location, imageUrl });
+
     const furniture = new Furniture({ name, description, categoryId, rentalPrice, availabilityStatus, location, imageUrl });
+
 
     try {
         const newFurniture = await furniture.save();
