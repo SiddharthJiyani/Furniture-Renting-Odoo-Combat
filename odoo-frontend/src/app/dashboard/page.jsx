@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import {
     Card,
     CardContent,
@@ -34,7 +35,7 @@ import StatusDropdown from './statusDropdown'
   ]
 
 const Page = () => {
-    
+    const [position, setPosition] = useState('pending')
     const weeklyGoal = 200
     const lastWeekSum = 100
     const lastMonthSum = 459
@@ -112,7 +113,7 @@ const Page = () => {
                   </div>
                 </TableCell>
                 <TableCell className='hidden sm:table-cell'>
-                  <StatusDropdown id={order.id} orderStatus={order.status} />
+                  <StatusDropdown id={order.id} orderStatus={order.status} position={position} setPosition={setPosition} />
                 </TableCell>
                 <TableCell className='hidden md:table-cell'>
                   {order.createdAt.toLocaleDateString()}
