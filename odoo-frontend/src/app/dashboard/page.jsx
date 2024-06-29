@@ -18,6 +18,7 @@ import {
     TableRow,
   } from '@/components/ui/table'
 import StatusDropdown from './statusDropdown'
+import withAuth from '@/hoc/withAuth'
 
   const orders = [
     {
@@ -132,4 +133,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default withAuth(Page)

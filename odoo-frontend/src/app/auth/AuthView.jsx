@@ -19,7 +19,7 @@ import {
 import { useAuth } from '@/context/AuthContext'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-
+const endPoint=process.env.API_ENDPOINT
 const AuthView = ({mode}) => {
     const [Password, setPassword] = useState('')
     const [email, setEmail] = useState('')
@@ -41,7 +41,8 @@ const AuthView = ({mode}) => {
             try {
                 const response = await axios.post('http://127.0.0.1:8000/api/signup/', {
                     email: email,
-                    password: Password
+                    password: Password,
+                    confirmPassword: confirmPassword
                 })
                 setMessage("User Registered Successfully")
                 mode="sign_in"

@@ -1,14 +1,7 @@
 import { SearchIcon } from 'lucide-react'
 import React from 'react'
 import { Slider } from "@/components/ui/slider"
-import { Popover, PopoverContent } from '@radix-ui/react-popover'
-import { PopoverTrigger } from '@/components/ui/popover'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+
 
 
 const Search = ({ setSearch ,search,setPrice,price}) => {
@@ -24,9 +17,9 @@ const Search = ({ setSearch ,search,setPrice,price}) => {
 
   return (
     <div className=' w-full text-center flex justify-center py-5 items-center '>
-      <SearchIcon size='15' className=' ' />
+      <SearchIcon size='15' className='mr-2 ' />
 
-      <input type="text" className=' w-1/2 border-2 rounded-lg p-1 px-2' placeholder='  Search.' value={search} onChange={onSearch} />
+      <input type="text" className=' w-1/3 border-2 rounded-lg p-1 px-2' placeholder='  Search.' value={search} onChange={onSearch} />
       
       
 

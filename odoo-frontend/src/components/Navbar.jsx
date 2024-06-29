@@ -4,6 +4,7 @@ import { ModeToggle } from './toggleTheme'
 import AuthDailog from './AuthDailog'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/context/AuthContext'
+import Profile from './profile'
 const Navbar = () => {
     const [token, setToken] = useState(null);
     const router = useRouter();
@@ -44,13 +45,13 @@ const Navbar = () => {
                           <div class="text-gray-600 dark:text-gray-300 lg:pr-4">
                               <ul class="space-y-6 tracking-wide font-medium text-base lg:text-sm lg:flex lg:space-y-0">
                                   <li>
-                                      <div onClick={() => router.push('/home')} class="block md:px-4 transition hover:text-primary dark:hover:text-primaryLight">
+                                      <div onClick={() => router.push('/')} class="block md:px-4 transition hover:text-primary dark:hover:text-primaryLight">
                                           <span>Home</span>
                                       </div>
                                   </li>
                                   <li>
-                                      <div onClick={() => router.push('/news')} class="block md:px-4 transition duration-200 hover:text-primary hover:cursor-pointer hover:dark:hover:text-primaryLight">
-                                          <span>News</span>
+                                      <div onClick={() => router.push('/products')} class="block md:px-4 transition duration-200 hover:text-primary hover:cursor-pointer hover:dark:hover:text-primaryLight">
+                                          <span>Products</span>
                                       </div>
                                   </li>
                                   <li>
@@ -62,11 +63,11 @@ const Navbar = () => {
                           </div>
                         { isLoggedIn ? 
                             (
+                                
                                 <div class="w-full pl-3 space-y-2 border-primary/10 dark:border-gray-700 flex flex-col -ml-1 sm:flex-row lg:space-y-0 md:w-max lg:border-l">
-                                <button onClick={handleLogOut} class="relative flex h-9 ml-auto items-center justify-center sm:px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary dark:before:bg-primaryLight before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95">
-                                    <span class="relative text-sm font-semibold text-white dark:text-gray-900">Logout</span>                    
-                                </button>
+                                <Profile/>
                                 </div>
+
                             )
 
                         :
