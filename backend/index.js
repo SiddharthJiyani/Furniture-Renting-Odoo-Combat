@@ -3,15 +3,12 @@ require("dotenv").config();
 const app = express();
 const cors = require("cors");
 const bookingRouter = require('./routes/bookings');
-
-const port = process.env.PORT || 4000;
-
-// database connection
-const db = require("./config/database");
-db.connectDB();
+const port = process.env.PORT || 4000 ;
 
 // Middleware
-app.use(express.json());
+app.use(express.json()); 
+
+// CORS
 app.use(
     cors({
         origin: "*",
@@ -19,15 +16,15 @@ app.use(
     })
 );
 
-// *** Routes ***
-app.get("/", (req, res) => {
-    res.send("<h1>This is homepage</h1>");
-});
+// Routes
+const userRoutes = require("./routes/user");
+app.use("/api/auth", userRoutes);
 
-app.get("/about", (req, res) => {
-    res.send("<h1>This is about page</h1>");
-});
+// Database connection
+const db = require("./config/database");
+db.connectDB();
 
+// Booking Router
 app.use('/api/bookings', bookingRouter);
 
 // Start the server
