@@ -1,0 +1,26 @@
+
+.cart {
+    @apply mx-0 my-[30px];
+  }
+  .cartWrapper {
+    @apply grid grid-cols-[65%_1fr] gap-[60px] grid-cols-[1fr];
+  }
+  .header {
+    @apply grid grid-cols-[100px_2fr_1fr] gap-6 hidden mb-2;
+  }
+  .headerItemDetails {
+    @apply grid grid-cols-[2fr_1fr_1fr];
+  }
+  .headersubtotal {
+    @apply text-end;
+  }
+  .itemsList {
+    @apply border-t-[color:var(--color-dark-50)] border-t border-solid;
+  }
+  .summary {
+    @apply flex flex-col gap-4 border border-[color:var(--color-dark-50)] px-6 py-[30px] border-solid;
+  }
+  .row {
+    @apply flex justify-between items-center border-b-[color:var(--color-dark-50)] pb-4 border-b border-solid;
+  }
+  
