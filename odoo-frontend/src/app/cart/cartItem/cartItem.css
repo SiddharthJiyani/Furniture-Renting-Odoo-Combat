@@ -1,0 +1,38 @@
+.item {
+    @apply grid grid-cols-[100px_2fr_1fr] gap-6 border-b-[color:var(--color-dark-50)] px-0 py-6 border-b border-solid;
+  }
+  .mediaWrapper {
+    @apply relative min-h-[100px] bg-[color:var(--color-dark-50)] p-4;
+  }
+  .media {
+    @apply relative h-full;
+  }
+  .image {
+    @apply object-contain max-w-full aspect-square;
+  }
+  .itemDetails {
+    @apply grid grid-cols-[2fr_1fr] gap-4 items-center grid-cols-[1fr];
+  }
+  .titleWrapper {
+    @apply whitespace-nowrap overflow-hidden text-ellipsis;
+  }
+  .titleWrapper h6 {
+    @apply leading-5 mb-2;
+  }
+  .quantity {
+    @apply border border-[color:var(--color-dark-500)] grid grid-cols-[45px_1fr_45px] items-center h-[45px] w-full max-w-[120px] rounded-[10px] border-solid;
+  }
+  .quantityBtn {
+    @apply flex justify-center w-full h-full cursor-pointer;
+  }
+  .quantityInput {
+    @apply text-center h-full w-full min-w-[30px] text-base font-bold border-[none];
+    outline: none;
+  }
+  .subtotalWrapper {
+    @apply flex items-center justify-end gap-[60px] flex-col justify-between;
+    @include small-break {
+      align-items: end;
+    }
+  }
+  
