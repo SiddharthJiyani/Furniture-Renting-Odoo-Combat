@@ -18,7 +18,9 @@ app.use(
 
 // Routes
 const userRoutes = require("./routes/user");
+const furnitureRoutes = require("./routes/furniture");
 app.use("/api/auth", userRoutes);
+app.use("/api/furniture",furnitureRoutes)
 
 // Database connection
 const db = require("./config/database");
