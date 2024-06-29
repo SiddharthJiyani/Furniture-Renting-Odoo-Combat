@@ -16,8 +16,8 @@ exports.signup = async (req, res) => {
       password,
       confirmPassword,
       address,
-      contactNumber,
-      profile_image,
+      contactNumber
+      
     } = req.body
     // Check if All Details are there or not
     if (
@@ -29,7 +29,7 @@ exports.signup = async (req, res) => {
       !confirmPassword ||
       !contactNumber ||
       !address ||
-      !profile_image
+      
     ) {
       return res.status(403).send({
         success: false,
@@ -67,8 +67,8 @@ exports.signup = async (req, res) => {
       contactNumber,
       password: hashedPassword,
       contactNumber,
-      address,
-      profile_image,
+      address
+      
     })
 
     return res.status(200).json({
