@@ -1,18 +1,33 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { furnitureData } from './list'
 import {Ban} from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import Search from './Search'
 
 const Products = () => {
     const router=useRouter()
+    const [search, setSearch] = useState('')
+    const [category, setCategory] = useState('')
+    const [filteredEntries, setFilteredEntries] = useState(furnitureData)
+    const [price , setPrice] = useState(50);
+    
+     useEffect(()=>{
+          const filtered = furnitureData.filter((entry)=>{
+         return  (entry.name.toString().toLowerCase().includes(search.toString().toLowerCase().trim())  || entry.location.toString().toLowerCase().includes(search.toString().toLowerCase().trim()) || entry.categoryId.toString().includes(search.toString().trim())) && entry.availabilityStatus === true && entry.rentalPrice <= price 
+     
+        })
+        setFilteredEntries(filtered)
+        },[search, category,price])
+
+        
 
   return (
     <>
+        <Search setSearch={setSearch} search={search} setPrice={setPrice} price={price} />
         <div class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
-
-        {furnitureData.map((product) => (
+        {filteredEntries.map((product) => (
             <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl" onClick={() => router.push(`/product/${product._id}`)}>
                 <a href="#">
                 <img src={product.imageUrl} alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
