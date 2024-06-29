@@ -6,7 +6,6 @@ const authenticateToken = async (req, res, next) => {
 		// Extracting JWT from request cookies, body or header
 		const token = req.header("Authorization").replace("Bearer ", "");
 
-        console.log(token) ;
 
 		// If JWT is missing, return 401 Unauthorized response
 		if (!token) {
@@ -16,7 +15,6 @@ const authenticateToken = async (req, res, next) => {
 		try {
 			// Verifying the JWT using the secret key stored in environment variables
 			const decode = jwt.verify(token, process.env.JWT_SECRET);
-			console.log(decode);
 			// Storing the decoded JWT payload in the request object for further use
 			req.user = decode;
 		} catch (error) {

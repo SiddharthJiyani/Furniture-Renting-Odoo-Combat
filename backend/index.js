@@ -43,6 +43,10 @@ db.connectDB();
 
 app.use('/api/bookings', authenticateToken, bookingRoutes);
 
+app.get("/api/getkey", (req, res) =>
+    res.status(200).json({ key: process.env.RAZORPAY_KEY })
+);  
+
 
 // Start the server
 app.listen(port, () => {
