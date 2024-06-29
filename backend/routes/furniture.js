@@ -54,7 +54,6 @@ router.post('/create', async (req, res) => {
             location, 
             imageUrl } = req.body;
 
-    const furniture = new Furniture({ name, description, categoryId:null, rentalPrice, availabilityStatus, location, imageUrl });
 
     const furniture = new Furniture({ name, description, categoryId, rentalPrice, availabilityStatus, location, imageUrl });
 
