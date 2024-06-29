@@ -24,16 +24,13 @@ const userSchema = new mongoose.Schema({
     },
     address: {
         type: String,
-        required: true
+        required: false
     },
     contactNumber: {
         type: String,
         required: true
     },
-    profile_image: {
-        type: String,
-        required: true
-    },
+    
     createdAt: {
         type: Date,
         default: Date.now
