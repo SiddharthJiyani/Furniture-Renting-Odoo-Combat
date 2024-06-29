@@ -6,7 +6,6 @@ const cors = require("cors");
 const bookingRoutes = require('./routes/bookings');
 
 const port = process.env.PORT || 4000 ;
-const authenticateToken = require('./middleware/authMiddleware');
 // Middleware
 app.use(express.json()); 
 
@@ -37,6 +36,7 @@ app.use("/api/payment", paymentRoutes);
 
 // Database connection
 const db = require("./config/database");
+const authenticateToken = require("./middleware/authMiddleware");
 db.connectDB();
 
 // Booking Router
