@@ -1,20 +1,4 @@
-const mongoose = require("mongoose")
-
-/*
-
-users // model
-user_id  // primary key
-username serial 
-email   varchar
-password_hash text
-first_name varchar
-last_name varchar
-address text
-phone_number varchar
-profile_image text
-created at timestamp
-updated_at timestamp
- */
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -27,22 +11,22 @@ const userSchema = new mongoose.Schema({
         require: true,
         unique: true
     },
-    password_hash: {
+    password: {
         type: String,
         required: true
     },
-    first_name: {
+    firstName: {
         type: String,
         required: true
     },
-    last_name: {
+    lastName: {
         type: String,
     },
     address: {
         type: String,
         required: true
     },
-    phone_number: {
+    contactNumber: {
         type: String,
         required: true
     },
@@ -57,6 +41,11 @@ const userSchema = new mongoose.Schema({
     updatedAt: {
         type: Date,
         default: Date.now
+    },
+    token: {
+        type: String
     }
 }, {timestamps: true}
 )
+
+module.exports = mongoose.model("User", userSchema)

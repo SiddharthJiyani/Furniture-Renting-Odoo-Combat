@@ -6,15 +6,6 @@ const cors = require("cors");
 
 const port = process.env.PORT || 4000 ;
 
-
-// *** Routes ***
-
-
-
-// database connection
-const db = require("./config/database");
-db.connectDB() ;
-
 //Middleware
 app.use(express.json()); 
 app.use(
@@ -26,8 +17,14 @@ app.use(
 
 
 // *** Routes ***
+const userRoutes = require("./routes/user");
+app.use("/api/auth", userRoutes);
 
 
+
+// database connection
+const db = require("./config/database");
+db.connectDB() ;
 
 
 app.listen(port, ()=>{
