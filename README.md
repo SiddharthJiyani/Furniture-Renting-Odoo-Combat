@@ -1,1 +1,0 @@
-# Furniture-Renting---Odoo-Combat
