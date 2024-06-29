@@ -27,10 +27,13 @@ app.use("/api/furniture",furnitureRoutes)
 
 const categoryRoutes = require("./routes/category");
 const bookingRouter = require('./routes/bookings');
+const paymentRoutes = require('./routes/Payment');
 app.use("/api/auth", userRoutes);
 app.use("/api/furniture",furnitureRoutes)
 app.use('/api/bookings', bookingRouter);
 app.use("/api/category", categoryRoutes);
+app.use("/api/payment", paymentRoutes);
+
 
 // Database connection
 const db = require("./config/database");
