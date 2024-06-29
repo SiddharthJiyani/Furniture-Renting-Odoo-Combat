@@ -2,7 +2,6 @@ const express = require("express");
 require("dotenv").config();
 const app = express();
 const cors = require("cors");
-const bookingRouter = require('./routes/bookings');
 const port = process.env.PORT || 4000 ;
 
 // Middleware
@@ -19,15 +18,18 @@ app.use(
 // Routes
 const userRoutes = require("./routes/user");
 const furnitureRoutes = require("./routes/furniture");
+const categoryRoutes = require("./routes/category");
+const bookingRouter = require('./routes/bookings');
 app.use("/api/auth", userRoutes);
 app.use("/api/furniture",furnitureRoutes)
+app.use('/api/bookings', bookingRouter);
+app.use("/api/category", categoryRoutes);
 
 // Database connection
 const db = require("./config/database");
 db.connectDB();
 
 // Booking Router
-app.use('/api/bookings', bookingRouter);
 
 // Start the server
 app.listen(port, () => {
