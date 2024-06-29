@@ -38,7 +38,7 @@ const Profile = () => {
           className="flex h-12 w-12 items-center justify-center ring-1 rounded-full text-slate-900 ring-slate-900 transition hover:shadow-md hover:ring-3 overflow-hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <img className="w-full object-cover" src={profilepic} alt="Profile" />
+          <img className="w-full object-cover" src="image.png" alt="Profile" />
         </button>
 
         {isOpen && (

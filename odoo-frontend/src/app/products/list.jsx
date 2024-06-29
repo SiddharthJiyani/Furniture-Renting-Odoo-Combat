@@ -7,7 +7,7 @@ export const furnitureData = [
       "rentalPrice": 75,
       "availabilityStatus": true,
       "location": "Office",
-      "imageUrl": "https://example.com/desk.jpg",
+      "imageUrl": "https://unsplash.com/photos/a-computer-monitor-sitting-on-top-of-a-desk-KkP3sVoD7Tg",
       "createdAt": "2023-06-30T08:00:00.000Z",
       "updatedAt": "2023-06-30T08:00:00.000Z"
     },
@@ -19,7 +19,7 @@ export const furnitureData = [
       "rentalPrice": 90,
       "availabilityStatus": true,
       "location": "Home Office",
-      "imageUrl": "https://example.com/standing-desk.jpg",
+      "imageUrl": "https://unsplash.com/photos/two-flat-screen-monitor-turned-on-near-organizer-rack-inside-the-room-RcdV8rnXSeE",
       "createdAt": "2023-07-02T12:00:00.000Z",
       "updatedAt": "2023-07-02T12:00:00.000Z"
     },
@@ -31,7 +31,7 @@ export const furnitureData = [
       "rentalPrice": 25,
       "availabilityStatus": true,
       "location": "Office",
-      "imageUrl": "https://example.com/monitor-stand.jpg",
+      "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rifeindia.com%2Fproducts%2Fdesktop-dual-lcd-fully-adjustable-gas-spring-computer-monitor-and-laptop-desk-mount-combo-stand-fits-13-27-screens-and-12-17-laptops-weight-up-to-8kgs-black&psig=AOvVaw1qyixbb4fZ8gMYgc-HZkkR&ust=1719755067080000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIiTx4P5gIcDFQAAAAAdAAAAABAE",
       "createdAt": "2023-07-03T14:00:00.000Z",
       "updatedAt": "2023-07-03T14:00:00.000Z"
     },
@@ -43,7 +43,7 @@ export const furnitureData = [
       "rentalPrice": 120,
       "availabilityStatus": true,
       "location": "Office",
-      "imageUrl": "https://example.com/l-shaped-desk.jpg",
+      "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.in%2FTribesigns-Executive-Business-Furniture-Computer%2Fdp%2FB09BQ1KXWR&psig=AOvVaw2hFpCeZ9qDFiY3HMlmqSmU&ust=1719755109525000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjS55T5gIcDFQAAAAAdAAAAABAE",
       "createdAt": "2023-07-04T16:00:00.000Z",
       "updatedAt": "2023-07-04T16:00:00.000Z"
     },
