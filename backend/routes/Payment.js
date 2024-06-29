@@ -7,7 +7,7 @@ const {
 } = require("../controllers/Payment")
 const authenticateToken = require("../middleware//authMiddleware")
 
-router.post("/capturePayment", authenticateToken ,capturePayment)
-router.post("/verifyPayment", authenticateToken, verifyPayment)
+router.post("/capturePayment" ,capturePayment)
+router.post("/verifyPayment", verifyPayment)
 
 module.exports = router 
