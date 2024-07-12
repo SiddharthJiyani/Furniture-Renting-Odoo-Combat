@@ -6,7 +6,6 @@ const cors = require("cors");
 const bookingRoutes = require('./routes/bookings');
 
 const port = process.env.PORT || 4000 ;
-const authenticateToken = require('./middleware/authMiddleware');
 // Middleware
 app.use(express.json()); 
 
@@ -27,18 +26,26 @@ app.use("/api/furniture",furnitureRoutes)
 
 const categoryRoutes = require("./routes/category");
 const bookingRouter = require('./routes/bookings');
+const paymentRoutes = require('./routes/Payment');
 app.use("/api/auth", userRoutes);
 app.use("/api/furniture",furnitureRoutes)
 app.use('/api/bookings', bookingRouter);
 app.use("/api/category", categoryRoutes);
+app.use("/api/payment", paymentRoutes);
+
 
 // Database connection
 const db = require("./config/database");
+const authenticateToken = require("./middleware/authMiddleware");
 db.connectDB();
 
 // Booking Router
 
 app.use('/api/bookings', authenticateToken, bookingRoutes);
+
+app.get("/api/getkey", (req, res) =>
+    res.status(200).json({ key: process.env.RAZORPAY_KEY })
+);  
 
 
 // Start the server

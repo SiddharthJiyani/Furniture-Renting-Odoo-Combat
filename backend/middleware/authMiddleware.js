@@ -2,20 +2,37 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User'); // Adjust the path to your User model
 
 const authenticateToken = async (req, res, next) => {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-
-    if (token == null) return res.sendStatus(401);
-
     try {
-        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        const user = await User.findById(decoded.userId);
-        if (!user) return res.sendStatus(403);
-        req.user = user;
-        next();
-    } catch (err) {
-        res.sendStatus(403);
-    }
+		// Extracting JWT from request cookies, body or header
+		const token = req.header("Authorization").replace("Bearer ", "");
+
+
+		// If JWT is missing, return 401 Unauthorized response
+		if (!token) {
+			return res.status(401).json({ success: false, message: `Token Missing` });
+		}
+
+		try {
+			// Verifying the JWT using the secret key stored in environment variables
+			const decode = jwt.verify(token, process.env.JWT_SECRET);
+			// Storing the decoded JWT payload in the request object for further use
+			req.user = decode;
+		} catch (error) {
+			// If JWT verification fails, return 401 Unauthorized response
+			return res
+				.status(401)
+				.json({ success: false, message: "token is invalid" });
+		}
+
+		// If JWT is valid, move on to the next middleware or request handler
+		next();
+	} catch (error) {
+		// If there is an error during the authentication process, return 401 Unauthorized response
+		return res.status(401).json({
+			success: false,
+			message: `Something Went Wrong While Validating the Token`,
+		});
+	}
 };
 
 module.exports = authenticateToken;
